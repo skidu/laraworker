@@ -1,0 +1,21 @@
+{
+    "name": "skidu/LaraWorker",
+    "license": "MIT",
+    "description": "Workerman for Laravel 5",
+    "require": {
+        "php": ">=5.4.0",
+        "ext-sockets": "*",
+        "workerman/gateway-worker": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Skidu\\Worker\\": "src"
+        }
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
+}
