@@ -1,5 +1,5 @@
 {
-    "name": "skidu/LaraWorker",
+    "name": "skidu/laraworker",
     "license": "MIT",
     "description": "Workerman for Laravel 5",
     "require": {
