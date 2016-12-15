@@ -9,13 +9,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Skidu\\Worker\\": "src"
-        }
-    },
-    "repositories": {
-        "packagist": {
-            "type": "composer",
-            "url": "https://packagist.phpcomposer.com"
+            "Skidu\\LaraWorker\\": "src"
         }
     }
 }
