@@ -1,6 +1,5 @@
 {
     "name": "skidu/laraworker",
-    "license": "MIT",
     "description": "Workerman for Laravel 5",
     "require": {
         "php": ">=5.4.0",
@@ -11,5 +10,12 @@
         "psr-4": {
             "Skidu\\LaraWorker\\": "src"
         }
-    }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "skidu",
+            "email": "ski@skidiu.me"
+        }
+    ]
 }
