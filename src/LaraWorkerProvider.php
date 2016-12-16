@@ -21,11 +21,20 @@ class LaraWorkerProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->registerCmdCreate();
         $this->registerCmdStart();
         $this->registerCmdRestart();
         $this->registerCmdStop();
         $this->registerCmdReload();
         $this->registerCmdStatus();
+    }
+
+    protected function registerCmdCreate()
+    {
+        $this->app->singleton('command.worker.create', function($app){
+            return $app['\Skidu\LaraWorker\Commands\CreateCommand'];
+        });
+        $this->commands('command.worker.create');
     }
 
     protected function registerCmdStart()

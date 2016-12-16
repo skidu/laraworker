@@ -12,7 +12,7 @@ class StartCommand extends BaseCommand
 
     public function fire()
     {
-        $this->checkException();
+        $this->checkExtensions();
         $this->initLogFile($this->option('logfile'));
         $this->initPidFile($this->option('pidfile'));
         $this->initRunConfFile();
@@ -20,7 +20,7 @@ class StartCommand extends BaseCommand
         $this->startWorker();
     }
 
-    protected function checkException()
+    protected function checkExtensions()
     {
         if (!extension_loaded('pcntl')) {
             throw new \Exception("Please install pcntl extension");

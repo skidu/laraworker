@@ -24,7 +24,8 @@ class BaseCommand extends Command
         return true;
     }
 
-    protected function initLogFile($logFile=null) {
+    protected function initLogFile($logFile=null)
+    {
         if (!$logFile) {
             $logFile = config('workerman.log_file') .DIRECTORY_SEPARATOR. 'workerman.log';
         }
