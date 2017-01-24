@@ -11,7 +11,7 @@ class CreateCommand extends BaseCommand
         $workerName = $this->argument('name');
         $config = config('workerman');
         $appPath = $config['app_path'];
-        if (!is_dir($appPath) && !mkdir($appPath)) {
+        if (!is_dir($appPath) && !@mkdir($appPath)) {
             throw new \Exception("create app directory failed: {$appPath}");
         }
 
@@ -19,7 +19,7 @@ class CreateCommand extends BaseCommand
         if (is_dir($workspace)) {
             throw new \Exception("directory exists: {$workspace}");
         }
-        if (!mkdir($workspace)) {
+        if (!@mkdir($workspace)) {
             throw new \Exception("create app directory failed: {$workspace}");
         }
 

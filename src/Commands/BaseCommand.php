@@ -47,22 +47,25 @@ class BaseCommand extends Command
     protected function initRunConfFile()
     {
         $runConfFile = config('workerman.run_conf');
-        $this->createRunFile($runConfFile, 'runtime config file');
+        $this->createRunFile($runConfFile, 'runtime config file', true);
         $this->runConfFile = $runConfFile;
         return true;
     }
 
-    private function createRunFile($file, $type)
+    private function createRunFile($file, $type, $ignore=false)
     {
         $directory = dirname($file);
-        if (!is_dir($directory) && !mkdir($directory)) {
+        if (!is_dir($directory) && !@mkdir($directory)) {
             throw new \Exception("can not create directory: {$directory}");
         }
-        if (!is_file($file) && ! touch($file)) {
+        if (!is_file($file) && !touch($file)) {
             throw new \Exception("create {$type} failed: {$file}");
         }
         if (!is_writable($file)) {
             throw new \Exception("{$type} can not been written: {$file}");
+        }
+        if(!is_file($directory.'/.gitignore')) {
+            file_put_contents($directory.'/.gitignore', '*');
         }
 
         return true;
